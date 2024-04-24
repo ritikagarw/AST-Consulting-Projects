@@ -5,7 +5,7 @@ import { MyContext } from "../../MyContext";
 import "./Item.css";
 
 // eslint-disable-next-line no-unused-vars
-const Item = ({ xs = 0, sm = 0, md = 0, lg = 0, name }) => {
+const Item = ({ xs = 0, sm = 0, md = 0, lg = 0 }) => {
   const { itemSpacing } = useContext(MyContext);
   const { contextSpacing } = itemSpacing;
 
@@ -15,13 +15,13 @@ const Item = ({ xs = 0, sm = 0, md = 0, lg = 0, name }) => {
   const [growValue, setGrowValue] = useState(1);
 
   useEffect(() => {
-    if (width > 1200 && lg > 0) {
+    if (lg && width > 1200) {
       setGrowValue(lg);
-    } else if (width >= 992 && md > 0) {
+    } else if (md && width >= 992) {
       setGrowValue(md);
-    } else if (width >= 768 && sm > 0) {
+    } else if (sm && width >= 768) {
       setGrowValue(sm);
-    } else if (width > 0 && xs > 0) {
+    } else if (xs && width > 0) {
       setGrowValue(xs);
     }
   }, [width, xs, sm, md, lg]);
@@ -34,7 +34,7 @@ const Item = ({ xs = 0, sm = 0, md = 0, lg = 0, name }) => {
         flexGrow: growValue,
       }}
     >
-      {xs ? `xs=${xs} `: ""}
+      {xs ? `xs=${xs} ` : ""}
       {sm ? `sm=${sm} ` : ""}
       {md ? `md=${md} ` : ""}
       {lg ? `lg=${lg}` : ""}

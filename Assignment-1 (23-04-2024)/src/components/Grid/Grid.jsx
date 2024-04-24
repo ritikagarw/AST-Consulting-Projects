@@ -16,12 +16,12 @@ const Grid = ({ spacing, container = false }) => {
   return (
     <div className="main">
       <div style={container ? { display: "flex" } : {}}>
-        <Item xs={4} md={10} lg={1} name={"Item 1"} />
-        <Item xs={8} md={2} lg={1} name={"Item 2"} />
+        <Item xs={4} md={9} lg={1} />
+        <Item xs={8} md={3} lg={1} />
       </div>
       <div style={container ? { display: "flex" } : {}}>
-        <Item xs={8} md={2} lg={1} name={"Item 3"} />
-        <Item xs={4} md={10} lg={1} name={"Item 4"} />
+        <Item xs={8} md={3} lg={1} />
+        <Item xs={4} md={9} lg={1} />
       </div>
     </div>
   );
