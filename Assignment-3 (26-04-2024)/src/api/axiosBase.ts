@@ -10,7 +10,7 @@ const axiosBase = axios.create({
 axiosBase.interceptors.request.use(
   (config) => {
     document.cookie = "MyCookie=Hello";
-    const token = localStorage.getItem("accessToken") || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcxNDMzNjA3MSwiZXhwIjoxNzE2MDY0MDcxfQ.QQ2Ha8xUR-XfJqJIIVhzwLct83efJvM9pPXd59ZNjWc"; // Access token from storage
+    const token = localStorage.getItem("accessToken"); // Access token from storage
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
